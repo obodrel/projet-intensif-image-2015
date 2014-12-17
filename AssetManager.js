@@ -1,16 +1,19 @@
 var AssetManager = Class.create({
 
 	assets: [],
-	loaded: false,
+	loaded: -2,
+	toLoad: 0,
+	
 	
 	add: function(id, asset) {
 		this.assets[id]=asset;
+		this.loaded ++;
 	},
 	
 	addImage: function(id, src) {
-		var image = new Image();
-		image.src = src;
+		var image = new Image(src);
 		image.onload = this.add(id,image);
+		this.toLoad ++;
 	},
 	
 	getImage: function(id) {
@@ -20,6 +23,7 @@ var AssetManager = Class.create({
 	addAudio: function(id, src) {
 		sound = new Audio(src);
 		sound.oncanplaythrough = this.add(id,sound);
+		this.toLoad ++;
 	},
 	
 	getAudio: function(id) {
@@ -45,11 +49,13 @@ var AssetManager = Class.create({
 		this.addAudio("weapon"   ,"./assets/audio/fx/WeaponChange.mp3");
 		this.addAudio("lvl1"     ,"./assets/audio/music/Level01.mp3");
 		this.addAudio("lvl2"     ,"./assets/audio/music/Level02.mp3");
-		loaded = true;
+		this.loaded+=2;
 	},
 	
 	isFinishedLoading: function() {
-		return loaded;
+		console.log(this.loaded+" / "+this.toLoad);
+		console.log(this.loaded >= this.toLoad);
+		return (this.loaded >= this.toLoad);
 	}
 });
 

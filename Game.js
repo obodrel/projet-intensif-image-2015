@@ -6,20 +6,17 @@ var Game = Class.create({
 	currentScreen : new LoadScreen(),
 
 	setScreen: function(gameScreen) {
+		this.currentScreen.dispose();
 		this.currentScreen = gameScreen;
+		gameScreen.initialize();
 	},
 
-	update: function() {
+	update: function(){
 		this.currentScreen.update();
 	},
 
 	render: function(canvasContext) {
-		this.currentScreen.render(canvasContext)
-	},
-	
-	loop: function(ctx){
-		this.update();
-		this.render(ctx);	
+		this.currentScreen.render(canvasContext);
 	},
 
 	start: function() {
@@ -34,8 +31,12 @@ var Game = Class.create({
 		document.getElementById("canvas").width  = this.width;
 		document.getElementById("canvas").height = this.height;
 		var ctx = document.getElementById("canvas").getContext("2d");
-		setTimeout(this.currentScreen.initialize(), 0);
-		setInterval(this.loop(ctx), 1);
+		var self = this;
+		setInterval(function(){
+			//console.log("loop");
+			self.update();
+			self.render(ctx);
+		}, 1);
 	}
 });
 var game = new Game();
