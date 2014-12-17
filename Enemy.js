@@ -8,7 +8,7 @@ Enemy.prototype = {
 	this.ySpedd = 0;
 	this.hitBox = new Rectangle(x-2,y-2,x+2,y+2);
 	shoot : function() {
-		levelScreen.addEntity(bulletFactory.createBullet(-1));
+		levelScreen.addEntity(bulletFactory.createBullet(10*this.x+this.y));
 	},
 	update : function() {
 		level = 0;

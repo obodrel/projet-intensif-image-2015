@@ -15,6 +15,10 @@ Bullet.prototype = {
 		}
 		if (this.angle == 0) {	
 			this.hitBox.moveTo(this.x-level*this.xSpeed,this.y);
+			this.x+=level*this.xSpeed;
+		}
+		if (this.angle == 180) {	
+			this.hitBox.moveTo(this.x-level*this.xSpeed,this.y);
 			this.x-=level*this.xSpeed;
 		}
 		if (this.angle == -45) {	
