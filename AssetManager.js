@@ -4,7 +4,6 @@ var AssetManager = Class.create({
 	loaded: -2,
 	toLoad: 0,
 	
-	
 	add: function(id, asset) {
 		this.assets[id]=asset;
 		this.loaded ++;
@@ -31,6 +30,7 @@ var AssetManager = Class.create({
 	},
 	
 	load: function() {
+		console.log("chargement assets");
 		this.addImage("bg1"      ,"./assets/images/Background01.png");
 		this.addImage("bg2"      ,"./assets/images/Background02.png");
 		this.addImage("bullet1"  ,"./assets/images/Bullet01.png");
@@ -42,9 +42,10 @@ var AssetManager = Class.create({
 		this.addImage("player1"  ,"./assets/images/Spaceship01.png");
 		this.addImage("player2"  ,"./assets/images/Spaceship02.png");
 		this.addImage("gameover" ,"./assets/images/GameOver.png");
+		this.addImage("supernova" ,"./assets/images/Supernova.jpg");
 		this.addImage("title"    ,"./assets/images/Title.png");
 		this.addImage("choice"   ,"./assets/images/Choice.png");
-		this.addAudio("explosion","./assets/audio/fx/Explosion.mp3");
+		this.addAudio("explosionsound","./assets/audio/fx/Explosion.mp3");
 		this.addAudio("loose"    ,"./assets/audio/fx/Loose.mp3");
 		this.addAudio("weapon"   ,"./assets/audio/fx/WeaponChange.mp3");
 		this.addAudio("lvl1"     ,"./assets/audio/music/Level01.mp3");

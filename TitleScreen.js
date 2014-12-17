@@ -9,7 +9,7 @@ var TitleScreen = Class.create(GameScreen, {
 
 	render: function(ctx) {
 
-		/*var img = AssetManager.getImage("assets/images/supernova.jpg")*/
+		var img = assetsManager.getImage("supernova")
 
 		var mon_image = new Image();
 		mon_image.src = "./assets/images/supernova.jpg";
