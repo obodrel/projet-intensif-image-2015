@@ -35,7 +35,7 @@ Bonus.prototype = {
 		return false;
 	}
 };
-Bonus.prototype = $.extend(
+Bonus.prototype = jQuery.extend(
 	{},
 	GameEntity.prototype,
 	Bonus.prototype

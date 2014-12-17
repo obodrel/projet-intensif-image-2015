@@ -53,7 +53,7 @@ Bullet.prototype = {
 		return false;
 	}
 };
-Bullet.prototype = $.extend(
+Bullet.prototype = jQuery.extend(
 	{},
 	GameEntity.prototype,
 	Bullet.prototype

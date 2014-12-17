@@ -42,7 +42,7 @@ Enemy.prototype = {
 		return false;
 	}
 };
-Enemy.prototype = $.extend(
+Enemy.prototype = jQuery.extend(
 	{},
 	GameEntity.prototype,
 	IShooter.prototype,

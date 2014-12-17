@@ -48,7 +48,7 @@ Player.prototype = {
 		return false;
 	}
 };
-Player.prototype = $.extend(
+Player.prototype = jQuery.extend(
 	{},
 	GameEntity.prototype,
 	IShooter.prototype,
