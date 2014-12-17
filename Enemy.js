@@ -1,4 +1,4 @@
-function Enemy(){
+function Enemy(x,y){
 	GameEntity.call(this,x,y);
 	IShooter.call(this);
 }
@@ -27,6 +27,10 @@ Enemy.prototype = {
 			level++;
 		}
 		this.hitBox.moveTo(this.x-level*this.xSpeed,this.y-level*this.ySpeed);
+		if(this.hitTest(player)) {
+			game.numLifes--;
+			delete this;
+		}
 	}
 	render : function( graphics ) {
 		graphics.drawImage("./assests/image/Enemy01.png",this.x,this.y);

@@ -1,4 +1,4 @@
-function Bonus(){
+function Bonus(x,y){
 	GameEntity.call(this,x,y);
 }
 
@@ -21,6 +21,9 @@ Bonus.prototype = {
 			level++;
 		}
 		this.hitBox.moveTo(this.x-level*this.xSpeed,this.y-level*this.ySpeed);
+		if(this.hitTest(player)) {
+			player.weaponId = input.WEAPON_01;
+		}
 	}
 	render : function( graphics ) {
 		graphics.drawImage("./assests/image/Enemy02.png",this.x,this.y);
