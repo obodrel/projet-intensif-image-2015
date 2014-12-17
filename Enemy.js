@@ -8,7 +8,7 @@ Enemy.prototype = {
 	this.ySpedd = 0;
 	shoot : function() {
 		bulletFactory.createBullet(-1);
-	}
+	},
 	canCollideWith : function( entity ) {
 		switch (Object.getPrototypeOf(entity)) {
 			case Player.prototype :
@@ -18,7 +18,7 @@ Enemy.prototype = {
 			default :
 				return false;
 		}
-	}
+	},
 	update : function() {
 		level = 0;
 		score = game.score;
@@ -31,10 +31,10 @@ Enemy.prototype = {
 			game.numLifes--;
 			delete this;
 		}
-	}
+	},
 	render : function( graphics ) {
 		graphics.drawImage("./assests/image/Enemy01.png",this.x,this.y);
-	}
+	},
 	hitTest : function( entity ) {
 		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
 			return true;
@@ -42,7 +42,7 @@ Enemy.prototype = {
 		return false;
 	}
 };
-Enemy.prototype = $.extend(
+Enemy.prototype = jQuery.extend(
 	{},
 	GameEntity.prototype,
 	IShooter.prototype,
