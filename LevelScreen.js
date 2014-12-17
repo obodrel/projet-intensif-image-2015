@@ -1,6 +1,6 @@
 function LevelScreen(){
 	this.entites = [];
-	this.addEntity(gameEntity) = function(){
-		entites[entites.length]=gameEntity;
-	}
+}
+LevelScreen.prototype.addEntity = function(gameEntity){
+	entites[entites.length]=gameEntity;
 }
