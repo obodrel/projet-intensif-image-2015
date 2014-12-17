@@ -6,12 +6,10 @@ var GameScreen = Class.create({
 	update: function() {
 	},
 
-	rend: function(canvas) {
-		return canvas;
+	render: function(canvas) {
 	},
 
 	dispose: function() {
 	}
 
 });
-
