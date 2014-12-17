@@ -1,7 +1,6 @@
 var LoadScreen = Class.create(GameScreen, {
 
 	initialize: function() {
-		console.log("loadscreen");
 		assetsManager.load();
 	},
 	

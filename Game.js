@@ -33,10 +33,10 @@ var Game = Class.create({
 		this.currentScreen = new LoadScreen();
 		var self = this;
 		setInterval(function(){
-			//console.log("loop");
 			self.update();
 			self.render(ctx);
 		}, 1);
+		//.setScreen(new LevelScreen());
 	}
 });
 var game = new Game();

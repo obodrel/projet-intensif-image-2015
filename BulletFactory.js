@@ -15,3 +15,5 @@ BulletFactory.prototype = {
 		return (new Bullet(weaponId/10,weaponId%10,180,["EnemyBullet"],["Player"]));
 	}
 }
+
+bulletFactory = new BulletFactory();

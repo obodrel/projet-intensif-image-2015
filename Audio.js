@@ -1,23 +1,18 @@
+self = this;
 var Audio = Class.create({
+	playBGM:function(){
 
-playBGM:function(id){
-
-if(game.score<=100){
- var audio=assetsManager.getAudio("lvl1")
- audio.play();
-}
-
-else {
- var audio=assetManager.getAudio("lvl2");
- audio.play();
-}
-},
-
-playFX:function(id){
-
-}
-
-
+		if(game.score<=100){
+ 			self.audio=assetManager.getAudio("lvl1")
+ 			audio.play();
+		} else {
+ 			self.audio=assetManager.getAudio("lvl2");
+ 			audio.play();
+		}
+	},
+	playFX:function(id){
+		audio.play(assetManager.getAudio(id));
+	}
 });
 
 var  audio = new Audio();

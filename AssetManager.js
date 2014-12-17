@@ -30,7 +30,6 @@ var AssetManager = Class.create({
 	},
 	
 	load: function() {
-		console.log("chargement assets");
 		this.addImage("bg1"      ,"./assets/images/Background01.png");
 		this.addImage("bg2"      ,"./assets/images/Background02.png");
 		this.addImage("bullet1"  ,"./assets/images/Bullet01.png");
@@ -54,8 +53,8 @@ var AssetManager = Class.create({
 	},
 	
 	isFinishedLoading: function() {
-		console.log(this.loaded+" / "+this.toLoad);
-		console.log(this.loaded >= this.toLoad);
+//		console.log(this.loaded+" / "+this.toLoad);
+//		console.log(this.loaded >= this.toLoad);
 		return (this.loaded >= this.toLoad);
 	}
 });
