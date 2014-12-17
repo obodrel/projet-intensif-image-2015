@@ -1,5 +1,5 @@
 var GameScreen = Class.create({
-
+	
 	initialize: function() {
 	},
 

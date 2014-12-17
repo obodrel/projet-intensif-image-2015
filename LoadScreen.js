@@ -1,13 +1,14 @@
 var LoadScreen = Class.create(GameScreen, {
 
 	initialize: function() {
-		setTimeout(assetsManager.load(), 0);
+		assetsManager.load();
 	},
 	
 	update: function() {
+		console.log("papa");
 		if (assetsManager.isFinishedLoading())
 		{
-			game.setScreen(new ChoiceScreen());
+			game.setScreen(new TitleScreen());
 			this.dispose();
 		}
 	},
