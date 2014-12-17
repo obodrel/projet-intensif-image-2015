@@ -46,6 +46,7 @@ var AssetManager = Class.create({
 		this.addAudio("lvl1"     ,"./assets/audio/music/Level01.mp3");
 		this.addAudio("lvl2"     ,"./assets/audio/music/Level02.mp3");
 		loaded = true;
+
 	},
 	
 	isFinishedLoading: function() {
