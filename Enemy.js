@@ -8,7 +8,7 @@ Enemy.prototype = {
 	this.ySpedd = 0;
 	this.hitBox = new Rectangle(x-2,y-2,x+2,y+2);
 	shoot : function() {
-		levelScreen.addEntity(bulletFactory.createBullet(-1));
+		game.currentScreen.addEntity(bulletFactory.createBullet(10*this.x+this.y));
 	},
 	update : function() {
 		level = 0;
@@ -18,9 +18,9 @@ Enemy.prototype = {
 			level++;
 		}
 		this.hitBox.moveTo(this.x-level*this.xSpeed,this.y-level*this.ySpeed);
-		if(this.hitTest(levelScreen.player)) {
+		if(this.hitTest(game.currentScreen.player)) {
 			game.numLifes--;
-			levelScreen.player.isSecondWeaponAvailable = false;
+			game.currentScreen.player.isSecondWeaponAvailable = false;
 			delete this;
 		}
 	},

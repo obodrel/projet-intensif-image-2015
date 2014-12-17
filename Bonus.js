@@ -16,8 +16,8 @@ Bonus.prototype = {
 		this.hitBox.moveTo(this.x-level*this.xSpeed,this.y-level*this.ySpeed);
 		this.x-=level*this.xSpeed;
 		this.y-=level*this.ySpeed;
-		if(this.hitTest(levelScreen.player)) {
-			levelScreen.player.isSecondWeaponAvailable = true;
+		if(this.hitTest(game.currentScreen.player)) {
+			game.currentScreen.player.isSecondWeaponAvailable = true;
 		}
 	},
 	render : function( graphics ) {

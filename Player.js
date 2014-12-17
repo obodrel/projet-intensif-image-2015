@@ -12,10 +12,10 @@ Player.prototype = {
 	shoot : function() {
 		if( input.isKeyDown(input.SHOOT)) {
 			if (this.weaponId == 1 ) {
-				levelScreen.addEntity(bulletFactory.createBullet(this.weaponId));
+				game.currentScreen.addEntity(bulletFactory.createBullet(this.weaponId));
 			} else {
 				for(e in bulletFactory.createBullet(this.weaponId)) {
-					levelScreen.addEntity(e);
+					game.currentScreen.addEntity(e);
 				}
 			}
 		}
