@@ -6,7 +6,7 @@ var GameScreen = Class.create({
 	update: function() {
 	},
 
-	rend: function(canvas) {
+	render: function(canvas) {
 		return canvas;
 	},
 
@@ -14,4 +14,3 @@ var GameScreen = Class.create({
 	}
 
 });
-
