@@ -7,7 +7,7 @@ var LoadScreen = Class.create(GameScreen, {
 	update: function() {
 		if (assetsManager.isFinishedLoading())
 		{
-			game.setScreen(new GameOverScreen());
+			game.setScreen(new ChoiceScreen());
 			this.dispose();
 		}
 	},

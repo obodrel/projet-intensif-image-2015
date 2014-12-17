@@ -38,6 +38,8 @@ var AssetManager = Class.create({
 		this.addImage("player1"  ,"./assets/images/Spaceship01.png");
 		this.addImage("player2"  ,"./assets/images/Spaceship02.png");
 		this.addImage("gameover" ,"./assets/images/GameOver.png");
+		this.addImage("title"    ,"./assets/images/Title.png");
+		this.addImage("choice"   ,"./assets/images/Choice.png");
 		this.addAudio("explosion","./assets/audio/fx/Explosion.mp3");
 		this.addAudio("loose"    ,"./assets/audio/fx/Loose.mp3");
 		this.addAudio("weapon"   ,"./assets/audio/fx/WeaponChange.mp3");
