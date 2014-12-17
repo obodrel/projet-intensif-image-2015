@@ -1,23 +1,14 @@
-function Enemy(x,y){
-	GameEntity.call(this,x,y);
+function Enemy(x,y,collisionGroups,collisionFilters){
+	GameEntity.call(this,x,y,collisionGroups,collisionFilters);
 	IShooter.call(this);
 }
 
 Enemy.prototype = {
 	this.xSpeed = 5;
 	this.ySpedd = 0;
+	this.hitBox = new Rectangle(x-2,y-2,x+2,y+2);
 	shoot : function() {
-		bulletFactory.createBullet(-1);
-	},
-	canCollideWith : function( entity ) {
-		switch (Object.getPrototypeOf(entity)) {
-			case Player.prototype :
-				return true;
-			case Bullet.prototype :
-				return true;
-			default :
-				return false;
-		}
+		game.currentScreen.addEntity(bulletFactory.createBullet(10*this.x+this.y));
 	},
 	update : function() {
 		level = 0;
@@ -27,13 +18,14 @@ Enemy.prototype = {
 			level++;
 		}
 		this.hitBox.moveTo(this.x-level*this.xSpeed,this.y-level*this.ySpeed);
-		if(this.hitTest(player)) {
+		if(this.hitTest(game.currentScreen.player)) {
 			game.numLifes--;
+			game.currentScreen.player.isSecondWeaponAvailable = false;
 			delete this;
 		}
 	},
 	render : function( graphics ) {
-		graphics.drawImage("./assests/image/Enemy01.png",this.x,this.y);
+		graphics.drawImage(assetManager.getImage("enemy1"),this.x,this.y);
 	},
 	hitTest : function( entity ) {
 		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
