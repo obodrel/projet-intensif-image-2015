@@ -1,10 +1,8 @@
-var Enemy = Class.create(GameEntity,IShooter,{
+var Enemy = Class.create(GameEntity,{
 	xSpeed : 5,
 	ySpedd : 0,
 	initialize : function(x,y,collisionGroups,collisionFilters){
-		GameEntity.call(this,x,y,collisionGroups,collisionFilters);
-		IShooter.call(this);
-		hitBox = new Rectangle(x-2,y-2,x+2,y+2);
+		this.hitBox = new Rectangle(x-2,y-2,x+2,y+2);
 	},
 	shoot : function() {
 		game.currentScreen.addEntity(bulletFactory.createBullet(10*this.x+this.y));
@@ -24,6 +22,7 @@ var Enemy = Class.create(GameEntity,IShooter,{
 		}
 	},
 	render : function( graphics ) {
-		graphics.drawImage(assetManager.getImage("enemy1"),this.x,this.y);
+		graphics.drawImage(assetsManager.getImage("enemy1"),this.x,this.y);
 	}
 });
+Enemy.prototype = new GameEntity;

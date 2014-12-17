@@ -2,7 +2,6 @@ var Bullet = Class.create(GameEntity,{
 	xSpeed : 3,
 	ySpeed : 3,
 	initialize : function(x,y,collisionGroups,collisionFilters,angle){
-		GameEntity.call(this,x,y,collisionGroups,collisionFilters);
 		this.angle = angle;
 		hitBox = new Rectangle(x-1,y-1,x+1,y+1);
 	},
@@ -32,7 +31,7 @@ var Bullet = Class.create(GameEntity,{
 			game.numLifes--;
 			delete this;
 		}
-		for(i = 0; i<game.currentScreen.enemies.length;++i) {
+		for(i = 0; i<game.currentScreen.enemies.length;i++) {
 			if(game.currentScreen.enemies[i] != null && this.hitTest(enemies[i])) {
 				delete game.currentScreen.enemies[i];
 				delete this;				
@@ -40,6 +39,7 @@ var Bullet = Class.create(GameEntity,{
 		}
 	},
 	render : function( graphics ) {
-		graphics.drawImage(assetManager.getImage("bullet1"),this.x,this.y);
+		graphics.drawImage(assetsManager.getImage("bullet1"),this.x,this.y);
 	}
 });
+Bullet.prototype = new GameEntity;

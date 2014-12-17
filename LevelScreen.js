@@ -5,40 +5,42 @@ var LevelScreen = Class.create({
 	bonuses: [],
 	infiniteBackground: null,
 	initialize: function() {
-		player = new Player(game.width/20,game.height/2,["Player"],["EnemyBullet","Bonus","Enemy"]);
-		infiniteBackground = new InfiniteBackground(0,0,[],[]);
+		this.player = new Player(game.width/20,game.height/2,["Player"],["EnemyBullet","Bonus","Enemy"]);
+		//console.log(this.player);
+		this.infiniteBackground = new InfiniteBackground(0,0,[],[]);
 		for ( i = 0; i<Math.floor((Math.random() * 20) + 10);i++) {
-			this.addEntity(new Enemy(game.width - game.width/20,Math.floor((Math.random() *game.height) + 1),["Enemy"],["AllyBullet","Player"]));
-		} 
+		//	this.addEntity(new Enemy(game.width - game.width/20,Math.floor((Math.random() *game.height) + 1),["Enemy"],["AllyBullet","Player"]));
+		}
 		audio.playBGM();
 	},
 	update: function() {
-		for(bullet in this.bullets) {
-			bullet.update(canvas);
+		for(i = 0;i<this.bullets.size;i++) {
+			bullets[i].update();
 		}
-		for(bonus in this.bonuses) {
-			bonus.update(canvas);
+		for(i = 0;i<this.bonuses.size;i++) {
+			bonuses[i].update();
 		}
-		for(enemy in this.enemies) {
-			enemies.update(canvas);
+		for(i = 0;i<this.enemies.size;i++) {
+			enemies[i].update();
 		}
-		this.player.update(canvas);
-		this.infiniteBackground.update(canvas);
-		if( Math.floor((Math.random() * 20) + 1) == 12 ) {
+		this.player.update();
+		this.infiniteBackground.update();
+		if( false && Math.floor((Math.random() * 20) + 1) == 12 ) {
 			this.addEntity(new Bonus(game.width/2,game.height/2,["Bonus"],["Player"]));
-		} 
+		}
 	},
 
 	render: function(canvas) {
-		for(bullet in this.bullets) {
-			bullet.render(canvas);
+		for(i = 0;i<this.bullets.size;i++) {
+			bullets[i].render(canvas);
 		}
-		for(bonus in this.bonuses) {
-			bonus.render(canvas);
+		for(i = 0;i<this.bonuses.size;i++) {
+			bonuses[i].render(canvas);
 		}
-		for(enemy in this.enemies) {
-			enemies.render(canvas);
+		for(i = 0;i<this.enemies.size;i++) {
+			enemies[i].render(canvas);
 		}
+
 		this.player.render(canvas);
 		this.infiniteBackground.render(canvas);
 	},

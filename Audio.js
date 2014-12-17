@@ -1,17 +1,14 @@
-self = this;
 var Audio = Class.create({
 	playBGM:function(){
-
 		if(game.score<=100){
- 			self.audio=assetManager.getAudio("lvl1")
- 			audio.play();
+ 			document.getElementById("audio").src = assetsManager.getAudio("lvl1");;
 		} else {
- 			self.audio=assetManager.getAudio("lvl2");
- 			audio.play();
+			document.getElementById("audio").src = assetsManager.getAudio("lvl2");;
 		}
+		document.getElementById("audio").play();
 	},
 	playFX:function(id){
-		audio.play(assetManager.getAudio(id));
+		audio.play(assetsManager.getAudio(id));
 	}
 });
 

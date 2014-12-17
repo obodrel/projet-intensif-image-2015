@@ -36,7 +36,6 @@ var Game = Class.create({
 			self.update();
 			self.render(ctx);
 		}, 1);
-		//.setScreen(new LevelScreen());
 	}
 });
 var game = new Game();

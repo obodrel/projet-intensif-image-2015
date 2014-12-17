@@ -1,10 +1,13 @@
 var GameEntity = Class.create({
-	initialize : function(params){
-		this.x=params.x;
-		this.y=params.y;
-		this.z=params.z;
-		this.collisionGroup= params.collisionGroup;
-		this.collisionFilters= params.collisionFilters;
+	x : 0,
+	y : 0,
+	collisionGroups : 0,
+	collisionFilters : 0,
+	initialize : function(x,y,collisionGroups,collisionFilters){
+		this.x=x;
+		this.y=y;
+		this.collisionGroups= collisionGroups;
+		this.collisionFilters= collisionFilters;
 	},
 	hitTest : function( entity ) {
 		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
@@ -19,5 +22,14 @@ var GameEntity = Class.create({
 			}
 		}
 		return false;
+	},
+	update : function() {
+
+	},
+	shoot : function() {
+
+	},
+	render : function() {
+
 	}
 });

@@ -2,7 +2,6 @@ var Bonus = Class.create(GameEntity,{
 	xSpeed : 1,
 	ySpedd : 0,
 	initialize : function(x,y,collisionGroups,collisionFilters) {
-		GameEntity.call(this,x,y,collisionGroups,collisionFilters);
 		hitbox = new Rectangle(x-1,y-1,x+1,y+1);
 	},
 	update : function() {
@@ -20,6 +19,7 @@ var Bonus = Class.create(GameEntity,{
 		}
 	},
 	render : function( graphics ) {
-		graphics.drawImage(assetManager.getImage("bullet2"),this.x,this.y);
+		graphics.drawImage(assetsManager.getImage("bullet2"),this.x,this.y);
 	}
 });
+Bonus.prototype = new GameEntity;
