@@ -3,12 +3,11 @@ var Game = Class.create({
 	numLifes      : 3,
 	width         : window.innerWidth  - 5/100*window.innerWidth,
 	height        : window.innerHeight - 5/100*window.innerHeight,
-	currentScreen : new LoadScreen(),
+	currentScreen : 0,
 
 	setScreen: function(gameScreen) {
 		this.currentScreen.dispose();
 		this.currentScreen = gameScreen;
-		gameScreen.initialize();
 	},
 
 	update: function(){
@@ -31,6 +30,7 @@ var Game = Class.create({
 		document.getElementById("canvas").width  = this.width;
 		document.getElementById("canvas").height = this.height;
 		var ctx = document.getElementById("canvas").getContext("2d");
+		this.currentScreen = new LoadScreen();
 		var self = this;
 		setInterval(function(){
 			//console.log("loop");
