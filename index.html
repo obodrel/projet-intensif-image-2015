@@ -4,6 +4,7 @@
 		<meta charset="UTF-8"> 
 		
 		<title>Title</title>
+		
 		<script src="prototype.js"></script>
 		<script src="Game.js"></script>
 		<script src="AssetManager.js"></script>
@@ -11,12 +12,7 @@
 		<script src="GameScreen.js"></script>
 	</head>
 	<body>
-		<canvas id="canvas" onload="game.start()">
+		<canvas id="canvas" onload="var game = new Game();game.start();">
 		</canvas>
-
-		<script src="prototype.js"></script>
-		<script src="Game.js"></script>
-		<script src="GameScreen.js"></script>
-		<script src="GameOverScreen.js"></script>
 	</body>
 </html> 
