@@ -1,19 +1,13 @@
-function Enemy(x,y){
+function Bonus(x,y){
 	GameEntity.call(this,x,y);
-	IShooter.call(this);
 }
 
-Enemy.prototype = {
-	this.xSpeed = 5;
+Bonus.prototype = {
+	this.xSpeed = 1;
 	this.ySpedd = 0;
-	shoot : function() {
-		bulletFactory.createBullet(-1);
-	},
 	canCollideWith : function( entity ) {
 		switch (Object.getPrototypeOf(entity)) {
 			case Player.prototype :
-				return true;
-			case Bullet.prototype :
 				return true;
 			default :
 				return false;
@@ -28,12 +22,11 @@ Enemy.prototype = {
 		}
 		this.hitBox.moveTo(this.x-level*this.xSpeed,this.y-level*this.ySpeed);
 		if(this.hitTest(player)) {
-			game.numLifes--;
-			delete this;
+			player.weaponId = input.WEAPON_01;
 		}
 	},
 	render : function( graphics ) {
-		graphics.drawImage("./assests/image/Enemy01.png",this.x,this.y);
+		graphics.drawImage("./assests/image/Enemy02.png",this.x,this.y);
 	},
 	hitTest : function( entity ) {
 		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
@@ -42,9 +35,8 @@ Enemy.prototype = {
 		return false;
 	}
 };
-Enemy.prototype = jQuery.extend(
+Bonus.prototype = jQuery.extend(
 	{},
 	GameEntity.prototype,
-	IShooter.prototype,
-	Enemy.prototype
+	Bonus.prototype
 );

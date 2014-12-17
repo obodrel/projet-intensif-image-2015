@@ -1,15 +1,16 @@
-var LoadScreen = Class.create({
+var LoadScreen = Class.create(GameScreen, {
+
 	initialize: function() {
-	},
-	
-	update: function() {
+		
 	},
 
-	render: function(canvas) {
-		return canvas;
-	},
+	render: function(graphics) {
+		graphics.fillStyle = "#00ff00";
+		graphics.fillRect(0,0, game.width,game.height);
 
-	dispose: function() {
+		graphics.fillStyle = "#ff0000";
+		graphics.font = "18px Helvetica";
+		graphics.fillText("Loading", 0,30);
 	}
 });
 
