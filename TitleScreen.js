@@ -6,10 +6,8 @@ var TitleScreen = Class.create(GameScreen, {
 	},
 
 	render: function(ctx) {
-
 		ctx.drawImage(assetsManager.getImage("title"), 0, 0,1920,1080,0,0,game.width,game.height);
-
-	},
+	}
 	
 });
 

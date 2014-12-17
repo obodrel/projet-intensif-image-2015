@@ -1,62 +1,49 @@
-function Player(x,y,collisionGroups,collisionFilters){
-	GameEntity.call(this,x,y,collisionGroups,collisionFilters);
-	IShooter.call(this);
-}
-
-Player.prototype = {
-	this.xSpeed = 5;
-	this.ySpedd = 5;
-	this.weaponId = input.WEAPON_1;
-	this.isSecondWeaponAvailable = false;
-	this.hitBox = new Rectangle(x-2,y-2,x+2,y+2);
+var Player = Class.create(GameEntity,IShooter,{
+	xSpeed : 5,
+	ySpedd : 5,
+	weaponId : Input.WEAPON_1,
+	isSecondWeaponAvailable : false,
+	initialize : function(x,y,collisionGroups,collisionFilters){
+		GameEntity.call(this,x,y,collisionGroups,collisionFilters);
+		IShooter.call(this);
+		hitBox = new Rectangle(x-2,y-2,x+2,y+2);
+	},
 	shoot : function() {
-		if( input.isKeyDown(input.SHOOT)) {
+		if( Input.isKeyDown(Input.SHOOT)) {
 			if (this.weaponId == 1 ) {
-				levelScreen.addEntity(bulletFactory.createBullet(this.weaponId));
+				game.currentScreen.addEntity(bulletFactory.createBullet(this.weaponId));
 			} else {
 				for(e in bulletFactory.createBullet(this.weaponId)) {
-					levelScreen.addEntity(e);
+					game.currentScreen.addEntity(e);
 				}
 			}
 		}
 	},
 	update : function() {
-		if( input.isKeyDown(input.UP)) { 
+		if( Input.isKeyDown(Input.UP)) { 
 			this.hitBox.moveTo(this.x,this.y-level*this.ySpeed);
-			this.y-=level*this.ySpeed:
+			this.y-=level*this.ySpeed;
 		}
-		if( input.isKeyDown(input.LEFT)) { 
+		if( Input.isKeyDown(Input.LEFT)) { 
 			this.hitBox.moveTo(this.x-level*this.xSpeed,this.y);
 			this.x-=level*this.xSpeed;
 		}
-		if( input.isKeyDown(inputDOWN)) { 
+		if( Input.isKeyDown(InputDOWN)) { 
 			this.hitBox.moveTo(this.x,this.y+level*this.ySpeed);
 			this.x-=level*this.xSpeed;
 		}
-		if( input.isKeyDown(input.RIGHT)) { 
+		if( Input.isKeyDown(Input.RIGHT)) { 
 			this.hitBox.moveTo(this.x+level*this.xSpeed,this.y);
 			this.x+=level*this.xSpeed;
 		}
-		if( input.isKeyDown(input.WEAPON_1)) { 
+		if( Input.isKeyDown(Input.WEAPON_1)) { 
 			weaponId = 1;
 		}		
-		if( this.isSecondWeaponAvailable && input.isKeyDown(input.WEAPON_2)) { 
+		if( this.isSecondWeaponAvailable && Input.isKeyDown(Input.WEAPON_2)) { 
 			weaponId = 2;
 		}		
 	},
 	render : function( graphics ) {
 		graphics.drawImage("player1",this.x,this.y);
-	},
-	hitTest : function( entity ) {
-		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
-			return true;
-		}
-		return false;
 	}
-};
-Player.prototype = jQuery.extend(
-	{},
-	GameEntity.prototype,
-	IShooter.prototype,
-	Player.prototype
-);
+});

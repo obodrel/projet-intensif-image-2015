@@ -1,16 +1,22 @@
 var AssetManager = Class.create({
 
 	assets: [],
-	loaded: false,
+	loaded: -2,
+	toLoad: 0,
 	
 	add: function(id, asset) {
 		this.assets[id]=asset;
+		this.loaded ++;
 	},
 	
 	addImage: function(id, src) {
 		var image = new Image();
 		image.src = src;
-		image.onload = this.add(id,image);
+		var self = this;
+		image.onload = function(){
+			self.add(id,image);
+		};
+		this.toLoad ++;
 	},
 	
 	getImage: function(id) {
@@ -19,7 +25,11 @@ var AssetManager = Class.create({
 	
 	addAudio: function(id, src) {
 		sound = new Audio(src);
-		sound.oncanplaythrough = this.add(id,sound);
+		var self = this;
+		sound.oncanplaythrough = function(){
+			self.add(id,sound);
+		};
+		this.toLoad ++;
 	},
 	
 	getAudio: function(id) {
@@ -38,19 +48,19 @@ var AssetManager = Class.create({
 		this.addImage("player1"  ,"./assets/images/Spaceship01.png");
 		this.addImage("player2"  ,"./assets/images/Spaceship02.png");
 		this.addImage("gameover" ,"./assets/images/GameOver.png");
+		this.addImage("supernova" ,"./assets/images/Supernova.jpg");
 		this.addImage("title"    ,"./assets/images/Title.png");
 		this.addImage("choice"   ,"./assets/images/Choice.png");
-		this.addAudio("explosion","./assets/audio/fx/Explosion.mp3");
+		this.addAudio("explosionsound","./assets/audio/fx/Explosion.mp3");
 		this.addAudio("loose"    ,"./assets/audio/fx/Loose.mp3");
 		this.addAudio("weapon"   ,"./assets/audio/fx/WeaponChange.mp3");
 		this.addAudio("lvl1"     ,"./assets/audio/music/Level01.mp3");
 		this.addAudio("lvl2"     ,"./assets/audio/music/Level02.mp3");
-		loaded = true;
-
+		this.loaded+=2;
 	},
 	
 	isFinishedLoading: function() {
-		return loaded;
+		return (this.loaded >= this.toLoad);
 	}
 });
 

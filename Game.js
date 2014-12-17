@@ -3,24 +3,21 @@ var Game = Class.create({
 	numLifes      : 3,
 	width         : window.innerWidth  - 5/100*window.innerWidth,
 	height        : window.innerHeight - 5/100*window.innerHeight,
-	currentScreen : new LoadScreen(),	
+
+	currentScreen : 0,
 
 	setScreen: function(gameScreen) {
+		this.currentScreen.dispose();
 		this.currentScreen = gameScreen;
 	},
 
-	update: function() {
+	update: function(){
 		this.currentScreen.update();
 	},
 
 	render: function(canvasContext) {
-		this.currentScreen.render(canvasContext)
-	},
-	
-	loop: function(ctx){
-		this.update();
-		this.render(ctx);
-		
+
+		this.currentScreen.render(canvasContext);
 
 	},
 
@@ -41,12 +38,13 @@ var Game = Class.create({
 		document.getElementById("canvas").height = this.height;
 		var ctx = document.getElementById("canvas").getContext("2d");
 
-		setTimeout(this.currentScreen.initialize, 0);
 
+		this.currentScreen = new LoadScreen();
 		var self = this;
-		setInterval(function() {
+		setInterval(function(){
+			//console.log("loop");
 			self.update();
-			self.render(ctx);		
+			self.render(ctx);
 		}, 10);
 
 	}

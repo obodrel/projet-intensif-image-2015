@@ -7,6 +7,7 @@ var GameScreen = Class.create({
 	},
 
 	render: function(canvas) {
+		return canvas;
 	},
 
 	dispose: function() {
