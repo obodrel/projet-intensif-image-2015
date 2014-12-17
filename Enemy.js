@@ -7,6 +7,7 @@ var Enemy = Class.create(GameEntity,{
 		this.collisionGroups= collisionGroups;
 		this.collisionFilters= collisionFilters;
 		this.hitBox = new Rectangle(x-2,y-2,x+2,y+2);
+		console.log("to");
 	},
 		hitTest : function( entity ) {
 		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
@@ -40,6 +41,7 @@ var Enemy = Class.create(GameEntity,{
 		}
 	},
 	render : function( graphics ) {
+		console.log("toto");
 		graphics.drawImage(assetsManager.getImage("enemy1"),this.x,this.y);
 	}
 });
