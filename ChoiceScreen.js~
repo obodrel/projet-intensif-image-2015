@@ -13,4 +13,7 @@ dispose:function(){
 
 });
 
+var choicescreen=new ChoiceScreen();
+canvas = document.getElementById("canvas");
+choicescreen.render(ctx);
 

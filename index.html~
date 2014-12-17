@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8"> 
+		
+		<title>Title</title>
+		
+		<script src="prototype.js"></script>
+		<script src="GameScreen.js"></script>
+		<script src="LoadScreen.js"></script>
+		<script src="Game.js"></script>
+		<script src="AssetManager.js"></script>
+		<script src="GameEntity.js"></script>
+		<script src="LevelScreen.js"></script>
+		<script src="InfiniteBackground.js"></script>
+		
+		<script>
+			var game = new Game();
+		</script> 
+	</head>
+	<body onload="game.start();">
+		<canvas id="canvas">
+		</canvas>
+	</body>
+</html> 
