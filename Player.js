@@ -6,8 +6,25 @@ var Player = Class.create(GameEntity,{
 	initialize : function(x,y,collisionGroups,collisionFilters){
 		//(x,y,collisionGroups,collisionFilters);
 		//x=0;
+		this.x=x;
+		this.y=y;
+		this.collisionGroups= collisionGroups;
+		this.collisionFilters= collisionFilters;
 		this.hitBox = new Rectangle(x-2,y-2,x+2,y+2);
 		console.log(this);
+	},	hitTest : function( entity ) {
+		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
+			return true;
+		}
+		return false;
+	},
+	canCollideWith : function(entity) {
+		for(groups in this.collisionGroup) {
+			if (groups in entity.collisionFilters) {
+				return true;
+			}
+		}
+		return false;
 	},
 	shoot : function() {
 		if( Input.isKeyDown(Input.SHOOT)) {

@@ -2,8 +2,26 @@ var Bullet = Class.create(GameEntity,{
 	xSpeed : 3,
 	ySpeed : 3,
 	initialize : function(x,y,collisionGroups,collisionFilters,angle){
+		this.x=x;
+		this.y=y;
+		this.collisionGroups= collisionGroups;
+		this.collisionFilters= collisionFilters;
 		this.angle = angle;
 		hitBox = new Rectangle(x-1,y-1,x+1,y+1);
+	},
+	hitTest : function( entity ) {
+		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
+			return true;
+		}
+		return false;
+	},
+	canCollideWith : function(entity) {
+		for(groups in this.collisionGroup) {
+			if (groups in entity.collisionFilters) {
+				return true;
+			}
+		}
+		return false;
 	},
 	update : function() {
 		if (this.angle == 45) {	
@@ -42,4 +60,3 @@ var Bullet = Class.create(GameEntity,{
 		graphics.drawImage(assetsManager.getImage("bullet1"),this.x,this.y);
 	}
 });
-Bullet.prototype = new GameEntity;
