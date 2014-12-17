@@ -16,11 +16,11 @@ var Input = {
 	},
 
 	onKeyDown: function(keyDownCallback) {
-		this.pressed[keyDownCallback.code] = true;
+		this.pressed[keyDownCallback.keyCode] = true;
 	},
 
 	onKeyUp: function(keyUpCallback) {
-		delete this.pressed[keyUpCallback.code];
+		delete this.pressed[keyUpCallback.keyCode];
 	}
 
 };

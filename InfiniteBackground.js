@@ -7,7 +7,6 @@ var InfiniteBackground = Class.create(GameEntity, {
 		this.virtualDepth= virtualDepth;
 		this.offsetX= game.width/3;
 		this.offsetY = game.height/3;
-		this.image = assetsManager.getImage("bg1");
 	},
 	
 	update: function(ctx){
@@ -25,12 +24,12 @@ var InfiniteBackground = Class.create(GameEntity, {
 	render : function( ctx ){
 		/*var img = new Image();
 		img.src = "./assets/images/Background01.png";*/
-	
+		img = assetsManager.getImage("bg1");
 		
-		ctx.drawImage(this.image, -game.width/3+this.offsetX, 0,game.width/3,game.height);
-		ctx.drawImage(this.image, this.offsetX, 0,game.width/3,game.height);
-		ctx.drawImage(this.image, game.width/3+this.offsetX, 0,game.width/3,game.height);
-		ctx.drawImage(this.image, game.width-game.width/3+this.offsetX, 0,game.width/3,game.height);
+		ctx.drawImage(img, -game.width/3+this.offsetX, 0,game.width/3,game.height);
+		ctx.drawImage(img, this.offsetX, 0,game.width/3,game.height);
+		ctx.drawImage(img, game.width/3+this.offsetX, 0,game.width/3,game.height);
+		ctx.drawImage(img, game.width-game.width/3+this.offsetX, 0,game.width/3,game.height);
 	}
 });
 
