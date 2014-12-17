@@ -10,8 +10,12 @@ var AssetManager = Class.create({
 	},
 	
 	addImage: function(id, src) {
-		var image = new Image(src);
-		image.onload = this.add(id,image);
+		var image = new Image();
+		image.src = src;
+		var self = this;
+		image.onload = function(){
+			self.add(id,image);
+		};
 		this.toLoad ++;
 	},
 	
@@ -21,7 +25,10 @@ var AssetManager = Class.create({
 	
 	addAudio: function(id, src) {
 		sound = new Audio(src);
-		sound.oncanplaythrough = this.add(id,sound);
+		var self = this;
+		sound.oncanplaythrough = function(){
+			self.add(id,sound);
+		};
 		this.toLoad ++;
 	},
 	
@@ -30,7 +37,6 @@ var AssetManager = Class.create({
 	},
 	
 	load: function() {
-		console.log("chargement assets");
 		this.addImage("bg1"      ,"./assets/images/Background01.png");
 		this.addImage("bg2"      ,"./assets/images/Background02.png");
 		this.addImage("bullet1"  ,"./assets/images/Bullet01.png");
@@ -54,8 +60,6 @@ var AssetManager = Class.create({
 	},
 	
 	isFinishedLoading: function() {
-		console.log(this.loaded+" / "+this.toLoad);
-		console.log(this.loaded >= this.toLoad);
 		return (this.loaded >= this.toLoad);
 	}
 });

@@ -1,7 +1,6 @@
 var LoadScreen = Class.create(GameScreen, {
 
 	initialize: function() {
-		console.log("loadscreen");
 		assetsManager.load();
 	},
 	
@@ -13,11 +12,12 @@ var LoadScreen = Class.create(GameScreen, {
 	},
 
 	render: function(graphics) {
-		graphics.fillStyle = "#00ff00";
-		graphics.fillRect(0,0, game.width,game.height);
-		graphics.fillStyle = "#ff0000";
-		graphics.font = "18px Helvetica";
-		graphics.fillText("Loading", 0,30);
+	
+		var image = new Image();
+		image.src = "./assets/images/Load.png";
+		image.onload = function(){
+			graphics.drawImage(image, 0, 0,1920,1080,0,0,game.width,game.height);
+		};
 	}
 });
 
