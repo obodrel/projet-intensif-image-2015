@@ -28,6 +28,9 @@ var TitleScreen = Class.create(GameScreen, {
 		var txt = "Press space bar to play";
     		ctx.fillText(txt, width/3, height/2);
 
+		/*var img = AssetManager.getImage("assets/images/supernova.jpeg")*/
+		
+
 		
 	}
 
