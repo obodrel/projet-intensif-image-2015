@@ -1,9 +1,9 @@
 var LevelScreen = Class.create({
-	this.bullets = [];
-	this.player = new Player(game.width/20,game.height/2,["Player"],["EnemyBullet","Bonus","Enemy"]);
-	this.enemies = [];
-	this.bonuses = [];
-	this.infiniteBackground = new InfiniteBackground(0,0,[],[]);
+	bullets: [],
+	//player : new Player(game.width/20,game.height/2,["Player"],["EnemyBullet","Bonus","Enemy"]),
+	enemies: [],
+	bonuses: [],
+	//infiniteBackground: new InfiniteBackground(0,0,[],[]),
 
 	initialize: function() {
 	},
@@ -26,23 +26,23 @@ var LevelScreen = Class.create({
 	},
 
 	dispose: function() {
-	}
+	},
 
 	addEntity  : function(entity) {
-		switch(entity.getPrototypeOf()) {
-			Player.prototype:
+		switch(Object.getPrototypeOf(entity)) {
+			case Player.prototype:
 				this.player = entity;
 				break;
-			InfiniteBackground.prototype:
+			case InfiniteBackground.prototype:
 				this.infiniteBackground = entity;
 				break;
-			Bullet.prototype:
+			case Bullet.prototype:
 				this.bullets.push(entity);
 				break;
-			Enemy.prototype:
+			case Enemy.prototype:
 				this.enemies.push(entity);
 				break;
-			Bonus.prototype:
+			case Bonus.prototype:
 				this.bonuses.push(entity);
 				break;
 			default:
