@@ -1,12 +1,11 @@
-function Enemy(x,y,collisionGroups,collisionFilters){
-	GameEntity.call(this,x,y,collisionGroups,collisionFilters);
-	IShooter.call(this);
-}
-
-Enemy.prototype = {
-	this.xSpeed = 5;
-	this.ySpedd = 0;
-	this.hitBox = new Rectangle(x-2,y-2,x+2,y+2);
+var Enemy = Class.create(GameEntity,IShooter,{
+	xSpeed : 5,
+	ySpedd : 0,
+	initialize : function(x,y,collisionGroups,collisionFilters){
+		GameEntity.call(this,x,y,collisionGroups,collisionFilters);
+		IShooter.call(this);
+		hitBox = new Rectangle(x-2,y-2,x+2,y+2);
+	},
 	shoot : function() {
 		game.currentScreen.addEntity(bulletFactory.createBullet(10*this.x+this.y));
 	},
@@ -26,17 +25,5 @@ Enemy.prototype = {
 	},
 	render : function( graphics ) {
 		graphics.drawImage(assetManager.getImage("enemy1"),this.x,this.y);
-	},
-	hitTest : function( entity ) {
-		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
-			return true;
-		}
-		return false;
 	}
-};
-Enemy.prototype = jQuery.extend(
-	{},
-	GameEntity.prototype,
-	IShooter.prototype,
-	Enemy.prototype
-);
+});
