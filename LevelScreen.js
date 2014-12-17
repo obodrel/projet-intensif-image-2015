@@ -3,4 +3,5 @@ function LevelScreen(){
 }
 LevelScreen.prototype.addEntity = function(gameEntity){
 	entites[entites.length]=gameEntity;
+	
 }

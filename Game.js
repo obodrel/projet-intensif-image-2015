@@ -26,7 +26,10 @@ var Game = Class.create({
 		document.getElementById("canvas").width  = this.width;
 		document.getElementById("canvas").height = this.height;
 		var ctx = document.getElementById("canvas").getContext("2d");
-		this.currentScreen.initialize();
-		setInterval(this.loop(ctx), 10);
+		//this.currentScreen.initialize();
+		//setInterval(this.loop(ctx), 10);
+		
+		var background = new InfiniteBackground(0,0,0,[],[],1,0,0);
+		background.render(ctx);
 	}
 });
