@@ -1,31 +1,33 @@
-function Game () {
-    this.score    = 0;
-    this.numLifes = 3;
-    this.width    = window.screen.availWidth;
-    this.height   = window.screen.availHeight;
-}
+var Game = Class.create({
+	score         : 0,
+	numLifes      : 3,
+	width         : window.screen.availWidth,
+	height        : window.screen.availHeight,
+	currentScreen : new LoadScreen(),
 
-Game.prototype.setScreen = function(gameScreen) {
-    this.currentScreen   = gameScreen;
-};
+	setScreen: function(gameScreen) {
+		this.currentScreen   = gameScreen;
+	},
 
-Game.prototype.update = function() {
-    this.currentScreen.update();
-};
+	update: function() {
+		this.currentScreen.update();
+	},
 
-Game.prototype.render = function(canvasContext) {
-    this.currentScreen.render(canvasContext)
-};
+	render: function(canvasContext) {
+		this.currentScreen.render(canvasContext)
+	},
+	
+	loop: function() {
+		this.update();
+		this.render(document.getElementById("canvas").getContext("2d"));
+		setTimeout(this.loop(), 10);
+	},
 
-Game.prototype.start = function() {
-	document.getElementById("canvas").width  = this.width;
-	document.getElementById("canvas").height = this.height;
-	this.currentScreen = new LoadScreen();
-	this.currentScreen.initialize();
-	while (true){
-		game.update();
-		game.render(document.getElementById("canvas").getContext("2d"));
+	start: function() {
+		document.getElementById("canvas").width  = this.width;
+		document.getElementById("canvas").height = this.height;
+		this.currentScreen.initialize();
+		this.update();
+		this.loop();
 	}
-};
-
-var game = new Game();
+});

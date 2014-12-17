@@ -6,13 +6,17 @@
 		<title>Title</title>
 		
 		<script src="prototype.js"></script>
+		<script src="GameScreen.js"></script>
+		<script src="LoadScreen.js"></script>
 		<script src="Game.js"></script>
 		<script src="AssetManager.js"></script>
-		<script src="LoadScreen.js"></script>
-		<script src="GameScreen.js"></script>
+		
+		<script>
+			var game = new Game();
+		</script> 
 	</head>
-	<body>
-		<canvas id="canvas" onload="var game = new Game();game.start();">
+	<body onload="game.start();">
+		<canvas id="canvas">
 		</canvas>
 	</body>
 </html> 
