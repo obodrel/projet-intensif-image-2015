@@ -7,7 +7,6 @@
 		
 		<script src="prototype.js"></script>
 		<script src="GameScreen.js"></script>
-		<script src="GameOverScreen.js"></script>
 		<script src="LoadScreen.js"></script>
 		<script src="Game.js"></script>
 		<script src="AssetManager.js"></script>

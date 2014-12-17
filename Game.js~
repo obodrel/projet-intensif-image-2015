@@ -3,7 +3,7 @@ var Game = Class.create({
 	numLifes      : 3,
 	width         : window.screen.availWidth,
 	height        : window.screen.availHeight,
-	currentScreen : new GameOverScreen(),
+	currentScreen : new LoadScreen(),
 
 	setScreen: function(gameScreen) {
 		this.currentScreen   = gameScreen;
