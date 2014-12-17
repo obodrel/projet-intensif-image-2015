@@ -17,17 +17,16 @@ var Game = Class.create({
 		this.currentScreen.render(canvasContext)
 	},
 	
-	loop: function() {
+	loop: function(ctx){
 		this.update();
-		this.render(document.getElementById("canvas").getContext("2d"));
-		setTimeout(this.loop(), 10);
+		this.render(ctx);	
 	},
 
 	start: function() {
 		document.getElementById("canvas").width  = this.width;
 		document.getElementById("canvas").height = this.height;
+		var ctx = document.getElementById("canvas").getContext("2d");
 		this.currentScreen.initialize();
-		this.update();
-		this.loop();
+		setInterval(this.loop(ctx), 10);
 	}
 });
