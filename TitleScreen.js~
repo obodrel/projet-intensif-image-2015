@@ -17,7 +17,10 @@ var TitleScreen = Class.create(GameScreen, {
 			ctx.drawImage(mon_image, 0, 0,1920,1080,0,0,game.width,game.height);
 		}
 
+		
+
 	},
 	
+
 });
 
