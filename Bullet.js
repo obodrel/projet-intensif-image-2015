@@ -25,6 +25,9 @@ var Bullet = Class.create(GameEntity,{
 			this.x+=level*this.xSpeed;
 			this.y+=level*this.ySpeed;
 		}
+		if(this.x<0 || this.x>game.width || this.y<0 || this.y>game.height){
+			delete this;
+		}
 		if(this.hitTest(game.currentScreen.player) && this.angle == 0) {
 			game.numLifes--;
 			delete this;
