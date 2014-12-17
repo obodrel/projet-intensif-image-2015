@@ -45,7 +45,7 @@ var Game = Class.create({
 			//console.log("loop");
 			self.update();
 			self.render(ctx);
-		}, 10);
+		}, 100);
 
 	}
 });
