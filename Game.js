@@ -18,13 +18,14 @@ Game.prototype.render = function(canvasContext) {
 };
 
 Game.prototype.start = function() {
+	document.getElementById("canvas").width  = this.width;
+	document.getElementById("canvas").height = this.height;
 	this.currentScreen = new LoadScreen();
 	this.currentScreen.initialize();
+	while (true){
+		game.update();
+		game.render(document.getElementById("canvas").getContext("2d"));
+	}
 };
 
 var game = new Game();
-game.start();
-while (true){
-	game.update();
-	game.render(document.getElementById("canvas").getContext("2d"));
-}
