@@ -1,6 +1,6 @@
 var Audio = Class.create({
 
-function playBGM(id){
+playBGM:function(id){
 
 if(game.score<=100){
  var audio=assetsManager.getAudio("lvl1")
@@ -11,9 +11,9 @@ else {
  var audio=assetManager.getAudio("lvl2");
  audio.play();
 }
-}
+},
 
-function playFX(id){
+playFX:function(id){
 
 }
 
