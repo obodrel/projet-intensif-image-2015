@@ -37,8 +37,8 @@ var Game = Class.create({
 		setTimeout(this.currentScreen.initialize(), 0);
 		setInterval(this.loop(ctx), 1);
 		
-		var background = new InfiniteBackground(0,0,0,[],[],1,0,0);
-		background.render(ctx);
+		/*var background = new InfiniteBackground(0,0,0,[],[],1,0,0);
+		background.render(ctx);*/
 	}
 });
 var game = new Game();
