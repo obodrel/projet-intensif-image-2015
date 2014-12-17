@@ -6,7 +6,7 @@ var Game = Class.create({
 	currentScreen : new LoadScreen(),
 
 	setScreen: function(gameScreen) {
-		this.currentScreen   = gameScreen;
+		this.currentScreen = gameScreen;
 	},
 
 	update: function() {
@@ -17,17 +17,17 @@ var Game = Class.create({
 		this.currentScreen.render(canvasContext)
 	},
 	
-	loop: function() {
+	loop: function(ctx){
 		this.update();
-		this.render(document.getElementById("canvas").getContext("2d"));
-		setTimeout(this.loop(), 10);
+		this.render(ctx);	
 	},
 
 	start: function() {
 		document.getElementById("canvas").width  = this.width;
 		document.getElementById("canvas").height = this.height;
-		this.currentScreen.initialize();
-		this.update();
-		this.loop();
+		var ctx = document.getElementById("canvas").getContext("2d");
+		setTimeout(this.currentScreen.initialize(), 0);
+		setInterval(this.loop(ctx), 1);
 	}
 });
+var game = new Game();
