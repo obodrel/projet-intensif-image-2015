@@ -15,7 +15,7 @@ Bullet.prototype = {
 			default :
 				return false;
 		}
-	}
+	},
 	update : function() {
 		level = 0;
 		score = game.score;
@@ -42,10 +42,10 @@ Bullet.prototype = {
 				delete this;				
 			}	
 		}
-	}
+	},
 	render : function( graphics ) {
 		graphics.drawImage("./assests/image/Bullet01.png",this.x,this.y);
-	}
+	},
 	hitTest : function( entity ) {
 		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
 			return true;

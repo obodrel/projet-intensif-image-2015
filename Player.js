@@ -11,7 +11,7 @@ Player.prototype = {
 		if( input.isKeyDown(input.SHOOT)) {
 			bulletFactory.createBullet(this.weaponId);
 		}
-	}
+	},
 	canCollideWith : function( entity ) {
 		switch (Object.getPrototypeOf(entity)) {
 			case Enemy.prototype :
@@ -23,7 +23,7 @@ Player.prototype = {
 			default :
 				return false;
 		}
-	}
+	},
 	update : function() {
 		if( input.isKeyDown(input.UP)) { 
 			this.hitBox.moveTo(this.x,this.y-level*this.ySpeed);
@@ -37,10 +37,10 @@ Player.prototype = {
 		if( input.isKeyDown(input.RIGHT)) { 
 			this.hitBox.moveTo(this.x+level*this.xSpeed,this.y);
 		}
-	}
+	},
 	render : function( graphics ) {
 		graphics.drawImage("./assests/image/Spaceship01.png",this.x,this.y);
-	}
+	},
 	hitTest : function( entity ) {
 		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
 			return true;

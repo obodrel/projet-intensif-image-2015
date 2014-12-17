@@ -12,7 +12,7 @@ Bonus.prototype = {
 			default :
 				return false;
 		}
-	}
+	},
 	update : function() {
 		level = 0;
 		score = game.score;
@@ -24,10 +24,10 @@ Bonus.prototype = {
 		if(this.hitTest(player)) {
 			player.weaponId = input.WEAPON_01;
 		}
-	}
+	},
 	render : function( graphics ) {
 		graphics.drawImage("./assests/image/Enemy02.png",this.x,this.y);
-	}
+	},
 	hitTest : function( entity ) {
 		if(this.canCollideWith(entity) && entity.hitBox.intersect(this.hitBox)) {
 			return true;
