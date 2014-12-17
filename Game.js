@@ -38,7 +38,4 @@ var Game = Class.create({
 		setInterval(this.loop(ctx), 1);
 	}
 });
-<<<<<<< HEAD
 var game = new Game();
-=======
->>>>>>> b5576d0c0da4e643e5a57f4f2d1b31628cdcc040
