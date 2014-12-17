@@ -6,7 +6,10 @@ var TitleScreen = Class.create(GameScreen, {
 	},
 
 	update: function() {
-		
+		if(Input.isKeyDown(Input.SHOOT)) {
+			levelscreen.render();
+			Game.setScreen(levelscreen);
+		}
 	},
 
 	dispose: function() {
