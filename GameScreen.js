@@ -13,4 +13,3 @@ var GameScreen = Class.create({
 	}
 
 });
-

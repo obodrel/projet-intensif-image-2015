@@ -1,8 +1,8 @@
 var Game = Class.create({
 	score         : 0,
 	numLifes      : 3,
-	width         : window.screen.availWidth,
-	height        : window.screen.availHeight,
+	width         : window.innerWidth  - 5/100*window.innerWidth,
+	height        : window.innerHeight - 5/100*window.innerHeight,
 	currentScreen : new LoadScreen(),
 
 	setScreen: function(gameScreen) {
@@ -23,6 +23,14 @@ var Game = Class.create({
 	},
 
 	start: function() {
+		if (this.width > 1920)
+			this.width = 1920;
+		if (this.height > 1080)
+			this.height = 1080;
+		if (this.width > 16/9 * this.height)
+			this.width = 16/9 * this.height;
+		if (this.height > 9/16 * this.width)
+			this.height = 9/16 * this.width;
 		document.getElementById("canvas").width  = this.width;
 		document.getElementById("canvas").height = this.height;
 		var ctx = document.getElementById("canvas").getContext("2d");
