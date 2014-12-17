@@ -36,6 +36,7 @@ var Game = Class.create({
 		var ctx = document.getElementById("canvas").getContext("2d");
 		setTimeout(this.currentScreen.initialize(), 0);
 		setInterval(this.loop(ctx), 1);
+		this.setScreen(new LevelScreen());
 	}
 });
 var game = new Game();
