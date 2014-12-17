@@ -4,7 +4,7 @@ var GameOverScreen=Class.create(GameScreen,{
 initialize:function(){
   canvas = document.getElementById("canvas");
   ctx = canvas.getContext('2d');
-  render(ctx);
+  
 },
 
 
@@ -25,4 +25,4 @@ dispose:function(){
 });
 
 var gameoverscreen=new GameOverScreen();
-
+gameoverscreen.render(ctx);
