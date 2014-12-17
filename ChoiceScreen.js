@@ -1,3 +1,4 @@
+var perso = 0;
 var ChoiceScreen = Class.create(GameScreen, {
 
 	left: true,
@@ -12,6 +13,10 @@ var ChoiceScreen = Class.create(GameScreen, {
 			this.left  = !this.left;
 		}
 		if(Input.isKeyDown(Input.SHOOT)) {
+			if (this.left)
+				perso = 1;
+			else
+				perso = 2;
 			game.setScreen(new LevelScreen());
 		}
 	},

@@ -25,4 +25,4 @@ var Enemy = Class.create(GameEntity,{
 		graphics.drawImage(assetsManager.getImage("enemy1"),this.x,this.y);
 	}
 });
-Enemy.prototype = new GameEntity;
+//Enemy.prototype = new GameEntity;

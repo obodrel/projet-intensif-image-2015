@@ -9,7 +9,7 @@ var LevelScreen = Class.create({
 		//console.log(this.player);
 		this.infiniteBackground = new InfiniteBackground(0,0,[],[]);
 		for ( i = 0; i<Math.floor((Math.random() * 20) + 10);i++) {
-		//	this.addEntity(new Enemy(game.width - game.width/20,Math.floor((Math.random() *game.height) + 1),["Enemy"],["AllyBullet","Player"]));
+		this.addEntity(new Enemy(game.width - game.width/20,Math.floor((Math.random() *game.height) + 1),["Enemy"],["AllyBullet","Player"]));
 		}
 		audio.playBGM();
 	},
@@ -31,6 +31,7 @@ var LevelScreen = Class.create({
 	},
 
 	render: function(canvas) {
+		this.infiniteBackground.render(canvas);
 		for(i = 0;i<this.bullets.size;i++) {
 			bullets[i].render(canvas);
 		}
@@ -42,7 +43,6 @@ var LevelScreen = Class.create({
 		}
 
 		this.player.render(canvas);
-		this.infiniteBackground.render(canvas);
 	},
 
 	dispose: function() {

@@ -51,16 +51,17 @@ var AssetManager = Class.create({
 		this.addImage("supernova" ,"./assets/images/Supernova.jpg");
 		this.addImage("title"    ,"./assets/images/Title.png");
 		this.addImage("choice"   ,"./assets/images/Choice.png");
-		this.addAudio("explosionsound","./assets/audio/fx/Explosion.mp3");
-		this.addAudio("loose"    ,"./assets/audio/fx/Loose.mp3");
-		this.addAudio("weapon"   ,"./assets/audio/fx/WeaponChange.mp3");
-		this.addAudio("lvl1"     ,"./assets/audio/music/Level01.mp3");
-		this.addAudio("lvl2"     ,"./assets/audio/music/Level02.mp3");
+		//this.addAudio("explosionsound","./assets/audio/fx/Explosion.mp3");
+		//this.addAudio("loose"    ,"./assets/audio/fx/Loose.mp3");
+		//this.addAudio("weapon"   ,"./assets/audio/fx/WeaponChange.mp3");
+		//this.addAudio("lvl1"     ,"./assets/audio/music/Level01.mp3");
+		//this.addAudio("lvl2"     ,"./assets/audio/music/Level02.mp3");
 		this.loaded+=2;
 	},
 	
 	isFinishedLoading: function() {
-			return (this.loaded >= this.toLoad);
+		console.log(this.loaded+"/"+this.toLoad);
+		return (this.loaded >= this.toLoad);
 	}
 });
 

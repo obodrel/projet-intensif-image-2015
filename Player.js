@@ -1,10 +1,11 @@
 var Player = Class.create(GameEntity,{
 	xSpeed : 5,
-	ySpedd : 5,
+	ySpeed : 5,
 	weaponId : Input.WEAPON_1,
 	isSecondWeaponAvailable : false,
 	initialize : function(x,y,collisionGroups,collisionFilters){
 		//(x,y,collisionGroups,collisionFilters);
+		//x=0;
 		this.hitBox = new Rectangle(x-2,y-2,x+2,y+2);
 		console.log(this);
 	},
@@ -20,6 +21,7 @@ var Player = Class.create(GameEntity,{
 		}
 	},
 	update : function() {
+		var level = 3;
 		if( Input.isKeyDown(Input.UP)) { 
 			this.hitBox.moveTo(this.x,this.y-level*this.ySpeed);
 			this.y-=level*this.ySpeed;
@@ -30,7 +32,7 @@ var Player = Class.create(GameEntity,{
 		}
 		if( Input.isKeyDown(Input.DOWN)) { 
 			this.hitBox.moveTo(this.x,this.y+level*this.ySpeed);
-			this.x-=level*this.xSpeed;
+			this.y+=level*this.xSpeed;
 		}
 		if( Input.isKeyDown(Input.RIGHT)) { 
 			this.hitBox.moveTo(this.x+level*this.xSpeed,this.y);
@@ -44,7 +46,7 @@ var Player = Class.create(GameEntity,{
 		}		
 	},
 	render : function( graphics ) {
-		graphics.drawImage(assetsManager.getImage("player1"),this.x,this.y);
+		graphics.drawImage(assetsManager.getImage("player"+perso),this.x,this.y);
 	}
 });
-Player.prototype = new GameEntity;
+//Player.prototype = new GameEntity;
