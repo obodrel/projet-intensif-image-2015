@@ -28,7 +28,4 @@ dispose:function(){
 
 });
 
-var gameoverscreen=new GameOverScreen();
-canvas = document.getElementById("canvas");
-ctx = canvas.getContext('2d');
-gameoverscreen.render(ctx);
+
